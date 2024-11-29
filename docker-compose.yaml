@@ -1,0 +1,17 @@
+services:
+  aapanel:
+    build:
+      context: .
+    container_name: aapanel
+    restart: unless-stopped
+    ports:
+      - "8888:8888"
+      - "80:80"
+      - "443:443"
+    volumes:
+      - aapanel_data:/www
+    environment:
+      TZ: "UTC"
+
+volumes:
+  aapanel_data:
